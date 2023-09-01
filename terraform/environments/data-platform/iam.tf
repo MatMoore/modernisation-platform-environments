@@ -99,6 +99,11 @@ data "aws_iam_policy_document" "athena_load_lambda_function_policy" {
   }
 }
 
+moved {
+  from = data.aws_iam_policy_document.iam_policy_document_for_authorizer_lambda
+  to = module.authorizor_lambda.aws_iam_policy_document.iam_policy_document_for_authorizer_lambda
+}
+
 data "aws_iam_policy_document" "iam_policy_document_for_get_glue_metadata_lambda" {
   statement {
     sid     = "GlueReadOnly"
